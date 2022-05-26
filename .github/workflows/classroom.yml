@@ -1,0 +1,16 @@
+    name: GitHub Classroom Workflow
+
+    on: [push]
+
+    jobs:
+      build:
+        name: Autograding
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - uses: actions/checkout@v2
+            with:
+              repository: ecotrv-unileon/Tests-Js-Jasmine-Separado #Repositorio publico con los test
+              #token: ${{ secrets.GH_PAT }} #Solo si es privado el repositorio
+              path: spec #Carpeta del repositorio donde se descargaran los test
+          - uses: education/autograding@v1
